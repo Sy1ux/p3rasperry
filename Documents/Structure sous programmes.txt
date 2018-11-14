@@ -1,0 +1,32 @@
+-entrer un nouveau message
+l'utilisateur navigue dans le message avec le joystick, latéral: le message, vertical: les caractères
+si il est au bout du message et va vers la droite, rajoute un caractère
+
+
+-enregister une séquance de mouvements
+#nombre fixe de mouvements ou deusièmme bouttons (fin)
+l'utilisateur met le py dans une certainer position puis apuie sue le bouton principal, pour chaque pression du bouton, les donée de tout les capteurs sont enregister dans une liste sous forme de tuple
+
+(gyrox,gyroy,gyroz,accx,accy,accz)
+
+-encrypter le message
+??? voir sem 2
+
+-save crypted message
+eregistrer le message crypter dans un fichier txt
+
+-lire le message encrtpter
+lire le fichier txt
+
+-(séquance de mouvements)
+
+-décrypter le message
+???
+
+-afficher le message en clair
+afficher le message en boucle a l'écran
+
+-suprimer ou conserver
+a et b (boutons) controle ces choix
+
+[le code boucle]
