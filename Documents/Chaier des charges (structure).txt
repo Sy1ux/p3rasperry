@@ -1,0 +1,15 @@
+P3- rasbery-py
+
+13nov - 19dec
+
+23nov 18h - chaier des charges et planing
+11dec 18h - preésentation par groupe
+18dec 18h - code et rapport du projet
+
+chailer des charges:
+-un programme pour encrypter un message texte
+-le message doit être rentré par une interface sur le py
+-le message peut être suprimé ou conservé une fois afficher
+-si le message est détruit on peut le remplacer
+-le message doit être encrypter
+-la clef du message doit être une suite de positions avec le py
