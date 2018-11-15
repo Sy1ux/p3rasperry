@@ -36,12 +36,12 @@ def new_message(caracters):
 	sense = SenseHat()
 	new_message = ["0"]
 	index = 0
-	end == False
 	
 	while True:
-		event = sense.stick.wait_for_events()
-		if event.action == "pressed":
-			break
+		caracter = new_message[index]
+		event = sense.stick.wait_for_event(emptybuffer=True)
+		if event.action != "pressed":
+			break #s'active tout seul?
 		elif event.direction == "up":
 			new_message[index] = caracters[up_index(caracter,caracters)]
 		elif event.direction == "down":
@@ -51,7 +51,7 @@ def new_message(caracters):
 		elif event.direction == "right":
 			new_message.append("0")
 			index += 1
-		show_letter(new_message[index])
+		sense.show_letter(new_message[index])
 
 	return new_message
 
@@ -81,3 +81,11 @@ def down_index(caracter,caracters):
 		return len(caracters)
 	else:
 		return new-1
+
+
+def get_position():
+	set_imu_config(False,True,True)
+	orientation = sense.get_orientation_degrees()
+	accel = sense.get_accelerometer_raw()
+	
+

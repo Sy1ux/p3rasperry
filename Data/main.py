@@ -1,5 +1,7 @@
-from sense_hat import SenseHat as sh
+from sense_hat import SenseHat
 import os
+
+from fcts import *
 
 #vérifie la présance du message
 message_file = "message.txt"
@@ -8,6 +10,7 @@ caracters = ["0","1","2","3","4","5","6","7","8","9"]
 ###pas de message:
 if fcts.file_exist(message) == False:
 	#entrer nouveau message
+	message = new_message(caracters)
 
 	#enregistrer séquance de mouvement
 
@@ -16,6 +19,7 @@ if fcts.file_exist(message) == False:
 	#encrypter le message
 
 	#enregister le message
+	save_message(message,message_file)
 
 
 ###message présent:
@@ -29,4 +33,5 @@ else:
 	#afficher le message
 
 	#attendre suprimer ou conserver
-	os.remove(message_file)
+	if:
+		os.remove(message_file)
