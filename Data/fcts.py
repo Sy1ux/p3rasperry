@@ -39,8 +39,8 @@ def new_message(caracters):
 	
 	while True:
 		caracter = new_message[index]
-		event = sense.stick.wait_for_event(emptybuffer=True)
-		if event.action != "pressed":
+		event = sense.stick.wait_for_event()
+		if event.action == "pressed":
 			break #s'active tout seul?
 		elif event.direction == "up":
 			new_message[index] = caracters[up_index(caracter,caracters)]
