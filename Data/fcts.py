@@ -50,6 +50,7 @@ def new_message_list(caracters,symbols):
 	"""
 	#creation variables
 	sense = SenseHat()
+	sense.low_light = True
 	new_message = ["0"]
 	index = 0
 	push2 = 0
@@ -113,6 +114,7 @@ def menu(menu_options):
 	post: l'index du choix fait dans le menu
 	"""
 	sense = SenseHat()
+	sense.low_light = True
 	menu_index = 0
 
 	sense.set_pixels(menu_options[menu_index])
@@ -167,6 +169,7 @@ def write_message(caracters,filename,symbols):
 	ecrire un nouveau message
 	"""
 	sense = SenseHat()
+	sense.low_light = True
 	#entrer nouveau message
 	message = new_message_list(caracters,symbols)
 
@@ -185,6 +188,7 @@ def read_message(filename):
 	lire un message existant
 	"""
 	sense = SenseHat()
+	sense.low_light = True
 	crypted_message = read_file(filename)
 	print(crypted_message)
 

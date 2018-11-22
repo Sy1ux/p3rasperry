@@ -22,6 +22,7 @@ symbols2 = [circle,triangle,cross]
 symbols3 = [circle,cross]
 
 sense = SenseHat()
+sense.low_light = True
 
 #verifie la presance du message
 
