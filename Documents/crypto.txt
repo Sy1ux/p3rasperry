@@ -1,0 +1,29 @@
+crypto:
+
+cryptologie = cryptographie + cryptanalyse
+
+props des messages:
+-confidencialitée
+-intégritée
+-autenticitée
+
+-algo clef secrète, symétrique
+-algo a clef pub et privée, assymétrique
+
+Fohrsdwuh pd plh, wx dv xq qhc pdjqliltxh
+Cleopatre ma mie, tu as un nez magnifique
+
+abcdefghijklmnopqrstuvwxyz
+defghijklmnopqrstuvwxyzabc
+
+
+substitution
+premutation
+
+chifrement de vigénère:
+clef = suite de lettre
+chaque lettre détermine le décalage, le clef boucle jusque au bout
+
+hachage:
+crée des empruntes
+texte = hash = emprunte
