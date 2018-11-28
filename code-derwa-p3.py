@@ -91,15 +91,43 @@ def save_message(message, filename):
 	with open(filename,"w") as file:
                 file.write(message)
                 
-def compare(filename):
-    hashed_message_old =read_file(filename)
-    if hashed_message_old == hashed_message_new:
-        return True
-    return false
+
+def encrypted_hashed (message,pwd,file_message,file_old):   #fonction générale pour encrypter le message et hacher la clé et la sauvegarder.
+
+    def encrypted_message(message,pwd,file_message):  #encrypter le message et le sauvegarder dans un fichier "filename"
+        crypted_message=encode(pwd, message) # sauvegarde dans une variable le message crypter 
+        save_message(crypted_message,filename_message)#sauvegarde le message crypter dans le fichie .txt
+    
+    def hashed_key(pwd,file_old): #Hacher la clé 'pwd' et la sauvegarde dans un fichier "filename"
+        hashed_message=hashing(pwd) #Sauvegarde le mdp hacher en type str
+        save_message(hashed_message, filename) #sauvegarde le mdp hacher dans un fichier
+        
+    encrypted_message(message,pwd)
+    hashed_key(pwd,filename)
+        
+
+def decrypt_compare(file_old,file_message,pwd):
+    
+    def compare(pwd,file_old):
+        hashed_message_new = hashing(pwd)
+        hashed_message_old =read_file(file_old)
+        if hashed_message_old == hashed_message_new:
+            return True
+        return false
+
+    if compare(file_old) == True : #si la clé hacher de base (créer par celui qui a écrit le message)est equivalente à la clé généré par la suite de mouvement de celui qui veut lire le message --> donc la suite de mouvement est bonne
+        crypted_message_from_txt=readfile(file_message) 
+        decrypted_message = decode(pwd,crypted_message_from_txt) #décrypter le message
+        print(decrypted_message) #type str
+    else :
+        print("Le mots de passe est mauvais, veuillez réesayer")
     
     
 
-#encrypter le message +hacher lambda clé et la sauvegarder
+    
+
+    
+"""#encrypter le message +hacher lambda clé et la sauvegarder
    
 message_from_txt = read_file(message_file)     #lis le fichier .txt pour en sortir le message non crypter et le stocket dans la variable afin de l'utilser dans la fonction ''encode''
 crypted_message=encode(pwd, message_from_txt)     # sauvegarde dans une variable le message crypter (pwd encore à définir)
@@ -107,15 +135,16 @@ save_message(crypted_message,message_file)       #sauvegarde le message crypter 
 hashed_message=hashing(pwd)     #Sauvegarde le mdp hacher en type str (pwd reste a définir voir code de samy)
 save_message(hashed_message, filename)     #sauvegarde le mdp hacher dans un fichier (nom qui reste a determiner -> voir code samy)
 
+
 #décrypter le message + hacher et comparer les hach
 hashed_message_new = hashing(pwd) #Sauvegarde la haching de la clé génére par la suite de mouvement dans une variable
 
-if compare == True : #si la clé hacher de base (créer par celui qui a écrit le message)est equivalente à la clé généré par la suite de mouvement de celui qui veut lire le message --> donc la suite de mouvement est bonne
+if compare(filename) == True : #si la clé hacher de base (créer par celui qui a écrit le message)est equivalente à la clé généré par la suite de mouvement de celui qui veut lire le message --> donc la suite de mouvement est bonne
     crypted_message_from_txt=readfile(message_file) 
     decrypted_message = decode(pwd,crypted_message_from_txt) #décrypter le message
-    return decrypted_message #type str
+    print(decrypted_message) #type str
 else :
-    print("Le mots de passe est mauvais, veuillez réesayer")
+    print("Le mots de passe est mauvais, veuillez réesayer")"""
 
 
 
