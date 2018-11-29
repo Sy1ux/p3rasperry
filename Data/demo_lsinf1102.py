@@ -9,8 +9,9 @@ opt = options.options()
 
 #nom des fichiers
 message_file = opt[0]
+key_file = opt[9]
 
-#listes de caractères
+#listes de caracteres
 caracters = opt[1]
 
 #couleurs
@@ -37,7 +38,7 @@ sense.low_light = True
 
 ###pas de message:
 if file_exist(message_file) == False:
-	write_message(caracters, message_file, symbols1)
+	write_message(caracters, message_file, symbols1, key_file)
 
 ###message present:
 else:
@@ -46,7 +47,7 @@ else:
 	sense.clear()
 
 	if to_do == 0:#O decrypter
-		read_message(message_file)
+		read_message(message_file, key_file)
 		if menu(symbols3) == 1: del_message(message_file)
 
 	elif to_do == 1:
@@ -54,7 +55,7 @@ else:
 		del_message(message_file)
 
 		#ecrire un message
-		write_message(caracters, message_file, symbols1)
+		write_message(caracters, message_file, symbols1, key_file)
 
 	else:
 		#suprimmer le message
