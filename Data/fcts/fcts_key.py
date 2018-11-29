@@ -1,8 +1,3 @@
-
-caract = ['a', 'A', 'd', 'D', 'e' , 'i', 'l', 'm', 'M', 'n', 'r', 'S', 'v','x','y','X', 'Y', '0','1','2','3','4','5','6','7','8','9']
-
-
-
 def ajouter_tup (l):
     """
     Fonction qui permet de créer un tuple sur base d'une liste 'l'
@@ -65,25 +60,3 @@ def create_key (lst_tup, dict):
         key += i
     
     return key
-
-"""******* Partie facultative avec quelques variables pour quelques tests *******"""
-
-from random import shuffle
-
-d = repertoire(caract)
-print(d)
-
-print()
-
-lst_t = [(-1, -1, 0), (-1, -1, 1), (-1, 0, -1), (-1, 1, 1), (0, -1, -1), (0, -1, 0), (0, -1, 1), (0, 0, 0), (0, 0, 1), (0, 1, -1), (1, -1, 0), (1, -1, 1), (1, 0, -1), (1, 0, 0), (1, 0, 1), (1, 1, -1), (1, 1, 0), (1, 1, 1)]
-
-print("la liste de tuple est : \n",lst_t,"\n")
-
-print("old_key : ",create_key(lst_t,d))
-
-shuffle(lst_t)
-
-print("new_key : ",create_key(lst_t,d))
-
-
-		

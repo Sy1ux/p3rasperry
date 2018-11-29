@@ -113,7 +113,7 @@ def decrypt_compare(file_old,file_message,pwd):
         hashed_message_old =read_file(file_old)
         if hashed_message_old == hashed_message_new:
             return True
-        return false
+        return False
 
     if compare(file_old) == True : #si la clé hacher de base (créer par celui qui a écrit le message)est equivalente à la clé généré par la suite de mouvement de celui qui veut lire le message --> donc la suite de mouvement est bonne
         crypted_message_from_txt=readfile(file_message) 

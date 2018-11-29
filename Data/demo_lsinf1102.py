@@ -1,16 +1,25 @@
 from sense_hat import SenseHat
 import os
-from fcts import *
+
+from fcts_steps import *
 import options
 
-#options
+#atributions des obtions
 opt = options.options()
+
+#nom des fichiers
 message_file = opt[0]
+
+#listes de caractères
 caracters = opt[1]
+
+#couleurs
 r=opt[2]
 w=opt[3]
 p=opt[4]
 c=opt[5]
+
+#symboles
 cross=opt[6]
 triangle=opt[7]
 circle=opt[8]

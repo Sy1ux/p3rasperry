@@ -1,43 +1,5 @@
 from sense_hat import SenseHat 
-from os import remove
 from time import sleep
-
-########################### FICHIERS
-def file_exist(filename):
-	"""
-	pre: le nom complet d'un fichier
-	post: True ou False selon l'existance du fichier
-	"""
-	try:
-		with open(filename, "r") as file:
-			return True
-	except:
-		return False
-
-
-def save_message(message, filename):
-	"""
-	pre: message le string a stocker dans un fichier
-		 filename le nom du fichier dans lequel crire
-	post: None
-	"""
-	with open(filename,"w") as file:
-		file.write(message)
-
-
-def read_file(filename):
-	"""
-	pre: filename le nom du fichier a lire
-	post: le string contenant le message
-	"""
-	with open(filename,"r") as file:
-		return file.readline()
-
-def del_message(filename):
-	"""
-	suprimer un fichier
-	"""
-	remove(filename)
 
 ##################################### INTERFACE
 
@@ -132,7 +94,9 @@ def menu(menu_options):
 					menu_index -= 1
 					sense.set_pixels(menu_options[menu_index])
 
-################ MANIPULATION INDEX
+
+
+################ MANIPULATION INDEX ###################
 
 def get_index(caracter,caracters):
 	"""
@@ -161,44 +125,3 @@ def down_index(caracter,caracters):
 		return len(caracters)-1
 	else:
 		return new-1
-
-###################### FONCTIONS GENERALES
-
-def write_message(caracters,filename,symbols):
-	"""
-	ecrire un nouveau message
-	"""
-	sense = SenseHat()
-	sense.low_light = True
-	#entrer nouveau message
-	message = new_message_list(caracters,symbols)
-
-	#enregistrer sequance de mouvement et aproximer
-
-	#cree la clef
-
-	#encrypter le message + acher la clef et sauvguarder
-	crypted_message = message
-
-	#enregister le message
-	save_message(crypted_message,filename)
-
-def read_message(filename):
-	"""
-	lire un message existant
-	"""
-	sense = SenseHat()
-	sense.low_light = True
-	crypted_message = read_file(filename)
-	print(crypted_message)
-
-	#enregister sequance de mouvement
-
-	#cree la clef
-
-	#decrypter le message + acher et comparer les ach
-	decrypted_message = crypted_message
-
-	#afficher le message
-	sense.show_message(decrypted_message)
-
