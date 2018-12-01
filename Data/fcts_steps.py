@@ -5,7 +5,7 @@ from fcts_key import *
 from fcts_file import *
 from fcts_crypt import *
 
-def write_message(caracters,filename,symbols,filename2):
+def write_message(caracters,filename,symbols,filename2,convert_lst):
 	"""
 	ecrire un nouveau message
 	"""
@@ -33,7 +33,7 @@ def write_message(caracters,filename,symbols,filename2):
 	#enregister le message
 	save_message(crypted_message,filename)
 
-def read_message(filename,filename2):
+def read_message(filename,filename2,convert_lst):
 	"""
 	lire un message existant
 	"""

@@ -1,35 +1,15 @@
 from sense_hat import SenseHat
-import os
 
 from fcts_steps import *
-import options
 
-#atributions des obtions
-opt = options.options()
-
-#nom des fichiers
-message_file = opt[0]
-key_file = opt[9]
-
-#listes de caracteres
-caracters = opt[1]
-
-#couleurs
-r=opt[2]
-w=opt[3]
-p=opt[4]
-c=opt[5]
-
-#symboles
-cross=opt[6]
-triangle=opt[7]
-circle=opt[8]
+#importe les options
+from options import *
 
 #variables
 crypted_message = ""
-symbols1 = [circle,triangle]
-symbols2 = [circle,triangle,cross]
-symbols3 = [circle,cross]
+symbols1 = [circle,triangle] #menu de confirmation écriture
+symbols2 = [circle,triangle,cross] #menu de choix lecture
+symbols3 = [circle,cross] #choix post lecture
 
 sense = SenseHat()
 sense.low_light = True
@@ -38,7 +18,7 @@ sense.low_light = True
 
 ###pas de message:
 if file_exist(message_file) == False:
-	write_message(caracters, message_file, symbols1, key_file)
+	write_message(caracters, message_file, symbols1, key_file, convert_list)
 
 ###message present:
 else:
@@ -47,7 +27,7 @@ else:
 	sense.clear()
 
 	if to_do == 0:#O decrypter
-		read_message(message_file, key_file)
+		read_message(message_file, key_file, convert_list)
 		if menu(symbols3) == 1: del_message(message_file)
 
 	elif to_do == 1:
@@ -55,7 +35,7 @@ else:
 		del_message(message_file)
 
 		#ecrire un message
-		write_message(caracters, message_file, symbols1, key_file)
+		write_message(caracters, message_file, symbols1, key_file, convert_list)
 
 	else:
 		#suprimmer le message

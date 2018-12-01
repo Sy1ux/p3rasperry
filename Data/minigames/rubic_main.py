@@ -17,6 +17,56 @@ screen =
 ,nc,nc,nc,nc,nd,nd,nd,nd]
 """
 
+class face():
+	def __init__(self,x,y,color):
+		 self.x = x
+		 self.y = y
+		 self.color = color
+
+	def coordonate(self):
+		return(self.x,self.y)
+
+def move(selection,direction):
+	if direction == "up":
+		for i in items:
+			if i.x == selection[1]:
+				i.y -= 2
+			if selection[1] == 5:
+				if i.x == 2:
+					i.y += 2
+			if selection[1] == 6:
+				if i.x == 1:
+					i.y += 2
+			tp(i)
+	elif direction == "down":
+		for i in items:
+			if i.x == selection[1]:
+				i.y -= 2
+			if selection[1] == 5:
+				if i.x == 2:
+					i.y += 2
+			if selection[1] == 6:
+				if i.x == 1:
+					i.y += 2
+			tp(i)
+	elif direction == "right":
+		for i in items:
+			if i.y == selection[0]:
+				i.x += 2
+				if i.x > 8:
+					i.x -=8
+	elif direction == "left":
+		for i in items:
+			if i.y == selection[0]:
+				i.x -= 2
+				if i.x < 1:
+					i.x += 8
+
+def get_color(coord):
+	for i in items:
+		if i.coordonate() == coord:
+			return i.color
+
 def tp(i):
 	#up
 	if i.coordonate() == (5,0):
@@ -72,58 +122,7 @@ def tp(i):
 		i.x = 5
 		i.y = 1
 
-
-
-class face():
-	def __init__(self,x,y,color):
-		 self.x = x
-		 self.y = y
-		 self.color = color
-
-	def coordonate(self):
-		return(self.x,self.y)
-
-def move(selection,direction):
-	if direction == "up":
-		for i in items:
-			if i.x == selection[1]:
-				i.y -= 2
-			if selection[1] == 5:
-				if i.x == 2:
-					i.y += 2
-			if selection[1] == 6:
-				if i.x == 1:
-					i.y += 2
-			tp(i)
-	elif direction == "down":
-		for i in items:
-			if i.y == selection[1]:
-				i.y -= 2
-			if selection[1] == 5:
-				if i.x == 2:
-					i.y += 2
-			if selection[1] == 6:
-				if i.x == 1:
-					i.y += 2
-			tp(i)
-	elif direction == "right":
-		for i in items:
-			if i.y == selection[0]:
-				i.x += 2
-				if i.x > 9:
-					i.x -=8
-	elif direction == "left":
-		for i in items:
-			if i.y == selection[0]:
-				i.x -= 2
-				if i.x < 1:
-					i.x += 8
-
-def get_color(coord):
-	for i in items:
-		if i.coordonate() == coord:
-			return i.color
-
+"""		
 def screen():
 	print("####{}{}##\n".format(get_color((5,1)),get_color((6,1)))+
 	  "####{}{}##\n".format(get_color((5,2)),get_color((6,2)))+
@@ -131,7 +130,7 @@ def screen():
 	  "{}{}{}{}{}{}{}{}\n".format(get_color((1,4)),get_color((2,4)),get_color((3,4)),get_color((4,4)),get_color((5,4)),get_color((6,4)),get_color((7,4)),get_color((8,4)))+
 	  "####{}{}##\n".format(get_color((5,5)),get_color((6,5)))+
 	  "####{}{}##\n".format(get_color((5,6)),get_color((6,6))))
-
+"""
 
 f1 = face(1,3,"r")
 f2 = face(1,4,"r")
@@ -164,9 +163,3 @@ f23 = face(8,3,"p")
 f24 = face(8,4,"p")
 
 items = [f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f15,f16,f17,f18,f19,f20,f21,f22,f23,f24]
-
-screen()
-move((3,5),"right")
-screen()
-
-
