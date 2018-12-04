@@ -2,7 +2,7 @@ def encode(pwd, message):  #encrypter le message
     """
     Crypte un texte en utilisant une cle de chiffrement, tous les deux fournis sous la forme d'une chaine de caracteres.
     L'algorithme utilise est le chiffrement de Vigenere.
-    Attention : cette méthode est "craquee" depuis longtemps, mais elle illustre le fonctionnement d'un algorithme de chiffrement.
+    Attention : cette methode est "craquee" depuis longtemps, mais elle illustre le fonctionnement d'un algorithme de chiffrement.
 
     :param (str) pwd: la cle de chiffrement
     :param (str) message: le texte a chiffrer
@@ -42,7 +42,7 @@ def hashing(pwd):  #Hach un mot de passe de type str
     Attention : cette technique de hachage n'est pas suffisante (hachage dit cryptographique) pour une utilisation en dehors du cours.
 
     :param (str) pwd: le mot de passe sous forme de chaine de caracteres
-    :return (str): le résultat du hachage
+    :return (str): le resultat du hachage
     """
     def to_32(value):
         """

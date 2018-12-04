@@ -7,7 +7,7 @@ from options import *
 
 #variables
 crypted_message = ""
-symbols1 = [circle,triangle] #menu de confirmation écriture
+symbols1 = [circle,triangle] #menu de confirmation ecriture
 symbols2 = [circle,triangle,cross] #menu de choix lecture
 symbols3 = [circle,cross] #choix post lecture
 

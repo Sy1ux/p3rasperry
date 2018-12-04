@@ -4,6 +4,7 @@ from fcts_ui import *
 from fcts_key import *
 from fcts_file import *
 from fcts_crypt import *
+from fcts_moves import *
 
 def write_message(caracters,filename,symbols,filename2,convert_lst):
 	"""
@@ -13,16 +14,14 @@ def write_message(caracters,filename,symbols,filename2,convert_lst):
 	sense.low_light = True
 
 	#entrer nouveau message
-	message = new_message_list(caracters,symbols)
+	message = new_message_ui(caracters,symbols)
 
 	#enregistrer sequance de mouvement et aproximer
-	mooves = [(0,0,0),(0,0,0),(0,0,0)]
-
-	#creer dictionaire de convertion
-	convert_dict = repertoire(convert_lst)
+	moves = get_moves(5,(150,150,150),(255,180,0))
+	print(moves)
 
 	#cree la clef
-	key = create_key(mooves, convert_dict)
+	key = create_key(moves, convert_lst)
 
 	#sauvgarder la clef achee
 	save_message(hashing(key),filename2)
@@ -44,13 +43,11 @@ def read_message(filename,filename2,convert_lst):
 	crypted_message = read_file(filename)
 
 	#enregister sequance de mouvement
-	mooves = [(0,0,0),(0,0,0),(0,0,0)]
-
-	#creer dictionaire de convertions
-	convert_dict = repertoire(convert_lst)
+	moves = get_moves(5,(150,150,150),(255,180,0))
+	print(moves)
 
 	#cree la clef
-	key = create_key(mooves, convert_dict)
+	key = create_key(moves, convert_list)
 
 	#acher et comparer la clef
 	if hashing(key) != read_file(filename2):

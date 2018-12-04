@@ -3,7 +3,7 @@ from time import sleep
 
 ##################################### INTERFACE
 
-def new_message_list(caracters,symbols):
+def new_message_ui(caracters,symbols):
 	"""
 	demande a l'utilisateur de crer un nouveau message
 	pre: caracers la liste de tout les caracteres possibles
@@ -56,18 +56,26 @@ def new_message_list(caracters,symbols):
 			#fin ecriture
 			elif event.action == "held":
 				if event.direction == "middle":
-					string_message = ""
-					for i in new_message:
-						string_message += i
-					sense.show_message(string_message)
+					message = end_menu(new_message,symbols)
+					if message != None:
+						return message
 
-					#demande de confirmation
-					selected = 0
-					sense.set_pixels(symbols[selected])
-					selected = menu(symbols)
-					if selected == 0:
-						return string_message
 			sense.show_letter(new_message[index])
+
+def end_menu(new_message,symbols):
+	sense = SenseHat()
+	string_message = ""
+	for i in new_message:
+		string_message += i
+	sense.show_message(string_message)
+
+	#demande de confirmation
+	selected = 0
+	sense.set_pixels(symbols[selected])
+	selected = menu(symbols)
+	if selected == 0:
+		return string_message
+
 
 def menu(menu_options):
 	"""
@@ -100,7 +108,7 @@ def menu(menu_options):
 
 def get_index(caracter,caracters):
 	"""
-	donne le numro d'index de caracter dans la liste caracters
+	donne le numro d index de caracter dans la liste caracters
 	"""
 	for i,j in enumerate(caracters):
 		if j == caracter:

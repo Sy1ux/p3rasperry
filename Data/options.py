@@ -5,13 +5,14 @@ key_file = "key.txt"
 #caracteres possibles
 #caracters = ["_","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","9","8","7","6","5","4","3","2","1","0"]
 caracters = ["9","8","7","6","5","4","3","2","1","0"]
-convert_list = []
+convert_list = ['A', 'd', 'D', 'e' , 'i', 'l', 'm', 'M', 'n', 'r', 'S', 'v','x','y','X', 'Y', '0','1','2','3','4','5','6','7','8','9']
 
 #couleurs
 r = (150,0,0) #red
 w = (150,150,150) #white
 p = (80,0,150) #purple
 c = (0,80,150) #cyan
+o = (255,255,0) #orange
 
 #patern menu
 cross = [
