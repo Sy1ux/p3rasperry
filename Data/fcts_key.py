@@ -42,39 +42,21 @@ def letter(lst_tup,dic):
     lst_char = []
     for i in lst_tup:
         lst_char.append(dic[i])
-    
     return lst_char
 
-<<<<<<< HEAD
-def create_key (lst_tup, caract):
+def create_key (lst_tup,caract):
     """
     Cree une cle a partir d'une liste de tuples 'lst_tup' et un dictionnaire 'dict'.
     pre : 'lst_tup' est une liste de tuples, les tuples doivent exister comme cle dans le dictionnaire 'dico'.
-          'caract' est une liste de caracteres.
-=======
-def create_key (lst_tup,caract):
-    """
-    Crée une cle a partir d'une liste de tuples 'lst_tup' et un dictionnaire 'dict'.
-    pre : 'lst_tup' est une liste de tuples, les tuples doivent exister comme cle dans le dictionnaire 'dico'.
            'caract' est une liste de caracteres.
           La fonction 'repertoire' est deja definie.
->>>>>>> master
           La fonction 'letter' est deja definie.
-          La fonction 'repertoire' est deja definie.
     post : La fonction cree une liste de caractere grace a la fonction 'letter'.
            La fonction effectue un concatenation de tous les caracteres de la liste cree, formant
            ainsi un string 'key' qu'elle retournera par la suite.
     """
     dico = repertoire(caract)
-<<<<<<< HEAD
-    lst_str = letter (lst_tup,dico)
-    print(lst_str)
-    print(dico)
-=======
-    lst_str = letter (lst_tup)
->>>>>>> master
     key =''
-    for i in lst_str:
+    for i in caract:
         key += i
-    print(key)
     return key

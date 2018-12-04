@@ -1,20 +1,20 @@
-def encode(pwd, message):  #encrypter le message
+def encode(pwd, plain_text):
     """
     Crypte un texte en utilisant une cle de chiffrement, tous les deux fournis sous la forme d'une chaine de caracteres.
     L'algorithme utilise est le chiffrement de Vigenere.
     Attention : cette methode est "craquee" depuis longtemps, mais elle illustre le fonctionnement d'un algorithme de chiffrement.
 
     :param (str) pwd: la cle de chiffrement
-    :param (str) message: le texte a chiffrer
+    :param (str) plain_text: le texte a chiffrer
     :return (str): le texte chiffre
     """
     key = pwd
     enc = []
-    for i, e in enumerate(message):
+    for i, e in enumerate(plain_text):
         key_c = key[i % len(key)]
         enc_c = chr((ord(e) + ord(key_c)) % 256)
         enc.append(enc_c)
-    return ("".join(enc).encode()).decode() #retourne le message crypter
+    return (" ".join(enc).encode("utf-8")).decode("utf-8")
 
 def decode(pwd, cipher_text):
     """
@@ -32,10 +32,9 @@ def decode(pwd, cipher_text):
         key_c = key[i % len(key)]
         dec_c = chr((256 + ord(e) - ord(key_c)) % 256)
         dec.append(dec_c)
-    return str("".join(dec))
+    return str(" ".join(dec))
 
-
-def hashing(pwd):  #Hach un mot de passe de type str
+def hashing(pwd):
     """
     Hachage d'un mot de passe fourni en entree.
     Le resultat est une chaine de caracteres.
@@ -57,7 +56,7 @@ def hashing(pwd):  #Hach un mot de passe de type str
         if value >= 2**31:
             value = value - 2 ** 32
         value = int(value)
-        return value 
+        return value
 
     if pwd:
         x = ord(pwd[0]) << 7
@@ -68,4 +67,4 @@ def hashing(pwd):  #Hach un mot de passe de type str
         if x == -1:
             x = -2
         return str(x)
-    return "" #retourne la cle hache sous forme str
+    return ""
