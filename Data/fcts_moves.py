@@ -2,6 +2,11 @@ from sense_hat import SenseHat
 from time import sleep
 
 def get_position():
+	"""
+	retourne l'orientation actuelle du raberry
+	pre: None
+	post: un tuple (x,y,z) a l'acceleration subie par chacun des axes
+	"""
 	sense = SenseHat()
 	acc = sense.get_accelerometer_raw()
 	x = int(round(acc["x"],0))
@@ -10,6 +15,12 @@ def get_position():
 	return (x,y,z)
 
 def countdown(time,col1,col2):
+	"""
+	afiche un decompte a l'ecran
+	pre: time le temps du decompte
+		 col1 et col2 les couleurs des chifres et du font (sont inversee toutes les 0.5s)
+	post: None
+	"""
 	sense = SenseHat()
 	time2 = time
 	while time2 > 0:
@@ -20,6 +31,11 @@ def countdown(time,col1,col2):
 		time2 -= 1
 
 def get_moves(lenth,col1,col2):
+	"""
+	optien une liste de positions de la longueure voulue
+	pre: lenth le nombre de positions voulue
+		 col1 et col2 les couleurs du countdown
+	"""
 	moves = []
 	countdown(5,col1,col1)
 	for i in range(lenth):

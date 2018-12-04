@@ -1,5 +1,3 @@
-convert_list = ['A', 'd', 'D', 'e' , 'i', 'l', 'm', 'M', 'n', 'r', 'S', 'v','x','y','X', 'Y', '0','1','2','3','4','5','6','7','8','9']
-
 def ajouter_tup (l):
     """
     Fonction qui permet de creer un tuple sur base d'une liste 'l'

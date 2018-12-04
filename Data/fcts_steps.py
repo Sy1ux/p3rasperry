@@ -6,7 +6,7 @@ from fcts_file import *
 from fcts_crypt import *
 from fcts_moves import *
 
-def write_message(caracters,filename,symbols,filename2,convert_lst):
+def write_message(caracters,filename,symbols,filename2,convert_list):
 	"""
 	ecrire un nouveau message
 	"""
@@ -21,7 +21,7 @@ def write_message(caracters,filename,symbols,filename2,convert_lst):
 	print(moves)
 
 	#cree la clef
-	key = create_key(moves, convert_lst)
+	key = create_key(moves, convert_list)
 
 	#sauvgarder la clef achee
 	save_message(hashing(key),filename2)
@@ -32,7 +32,7 @@ def write_message(caracters,filename,symbols,filename2,convert_lst):
 	#enregister le message
 	save_message(crypted_message,filename)
 
-def read_message(filename,filename2,convert_lst):
+def read_message(filename,filename2,convert_list):
 	"""
 	lire un message existant
 	"""

@@ -7,9 +7,9 @@ from options import *
 
 #variables
 crypted_message = ""
-symbols1 = [circle,triangle] #menu de confirmation ecriture
-symbols2 = [circle,triangle,cross] #menu de choix lecture
-symbols3 = [circle,cross] #choix post lecture
+symbols1 = [shape3,shape2] #menu de confirmation ecriture
+symbols2 = [shape3,shape2,shape1] #menu de choix lecture
+symbols3 = [shape3,shape1] #choix post lecture
 
 sense = SenseHat()
 sense.low_light = True
