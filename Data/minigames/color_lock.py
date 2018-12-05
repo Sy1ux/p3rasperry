@@ -1,70 +1,70 @@
 class tile():
-	def __init__(self,x,y,color):
-		self.__x = x
-		self.__y = y
-		self.__color = color
+    def __init__(self,x,y,color):
+        self.__x = x
+        self.__y = y
+        self.__color = color
 
-	def __str__(self):
-		return str(self.__color)
+    def __str__(self):
+        return str(self.__color)
 
-	def get_x(self):
-		x = self.__x
-		return x
+    def get_x(self):
+        x = self.__x
+        return x
 
-	def get_y(self):
-		y = self.__y
-		return y
+    def get_y(self):
+        y = self.__y
+        return y
 
-	def move_x(self,move):
-		self.__x += move
-		print("test")
+    def move_x(self,move):
+        self.__x += move
+        print("test")
 
-	def move_y(self,move):
-		self.__y += move
+    def move_y(self,move):
+        self.__y += move
 
-	def coord(self):
-		x = self.__x
-		y = self.__y
-		return (x,y)
+    def coord(self):
+        x = self.__x
+        y = self.__y
+        return (x,y)
 
-	def get_color(self):
-		return self.__color
+    def get_color(self):
+        return self.__color
 def tp():
-	for i in tiles:
-		if i.get_x() < 0:
-			i.move_x(6)
-		elif i.get_x() > 5:
-			i.move_x(-6)
-		if i.get_y() < 0:
-			i.move_y(6)
-		elif i.get_y() > 5:
-			i.move_y(-6)
+    for i in tiles:
+        if i.get_x() < 0:
+            i.move_x(6)
+        elif i.get_x() > 5:
+            i.move_x(-6)
+        if i.get_y() < 0:
+            i.move_y(6)
+        elif i.get_y() > 5:
+            i.move_y(-6)
 
 def move(x,y,direction):
-	for i in tiles:
-		if direction == "N":
-			print("hello")
-			if i.get_y() == y:
-				print("hi")
-				i.move_x(2)
-		elif direction == "S":
-			if i.get_y() == y:
-				i.move_x(-2)
-		elif direction == "E":
-			if i.get_x() == x:
-				i.move_y(2)
-		elif direction == "W":
-			if i.get_x() == x:
-				i.move_y(-2)
+    for i in tiles:
+        if direction == "N":
+            print("hello")
+            if i.get_y() == y:
+                print("hi")
+                i.move_x(2)
+        elif direction == "S":
+            if i.get_y() == y:
+                i.move_x(-2)
+        elif direction == "E":
+            if i.get_x() == x:
+                i.move_y(2)
+        elif direction == "W":
+            if i.get_x() == x:
+                i.move_y(-2)
 
 def screen():
-	print(
-		"#\t#\t{}\t{}\t#\t#\n".format(t18,t20)+
-		"#\t#\t{}\t{}\t#\t#\n".format(t17,t19)+
-		"{}\t{}\t{}\t{}\t{}\t{}\n".format(t6,t8,t10,t12,t15,t16)+
-		"{}\t{}\t{}\t{}\t{}\t{}\n".format(t5,t7,t9,t11,t13,t14)+
-		"#\t#\t{}\t{}\t#\t#\n".format(t3,t4)+
-		"#\t#\t{}\t{}\t#\t#\n".format(t1,t2))
+    print(
+        "#\t#\t{}\t{}\t#\t#\n".format(t18,t20)+
+        "#\t#\t{}\t{}\t#\t#\n".format(t17,t19)+
+        "{}\t{}\t{}\t{}\t{}\t{}\n".format(t6,t8,t10,t12,t15,t16)+
+        "{}\t{}\t{}\t{}\t{}\t{}\n".format(t5,t7,t9,t11,t13,t14)+
+        "#\t#\t{}\t{}\t#\t#\n".format(t3,t4)+
+        "#\t#\t{}\t{}\t#\t#\n".format(t1,t2))
 
 red = (0)
 blue = (1)
