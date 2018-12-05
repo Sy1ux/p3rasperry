@@ -56,7 +56,8 @@ def create_key (lst_tup,caract):
            ainsi un string 'key' qu'elle retournera par la suite.
     """
     dico = repertoire(caract)
-    key =''
-    for i in caract:
+    lst_str = letter(lst_tup, dico)
+    key =""
+    for i in lst_str:
         key += i
     return key

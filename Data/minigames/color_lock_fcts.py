@@ -17,7 +17,6 @@ class tile():
 
 	def move_x(self,move):
 		self.__x += move
-		print("test")
 
 	def move_y(self,move):
 		self.__y += move
@@ -43,9 +42,7 @@ def tp():
 def move(x,y,direction):
 	for i in tiles:
 		if direction == "N":
-			print("hello")
 			if i.get_y() == y:
-				print("hi")
 				i.move_x(2)
 		elif direction == "S":
 			if i.get_y() == y:
@@ -56,21 +53,7 @@ def move(x,y,direction):
 		elif direction == "W":
 			if i.get_x() == x:
 				i.move_y(-2)
-
-def screen():
-	print(
-		"#\t#\t{}\t{}\t#\t#\n".format(t18,t20)+
-		"#\t#\t{}\t{}\t#\t#\n".format(t17,t19)+
-		"{}\t{}\t{}\t{}\t{}\t{}\n".format(t6,t8,t10,t12,t15,t16)+
-		"{}\t{}\t{}\t{}\t{}\t{}\n".format(t5,t7,t9,t11,t13,t14)+
-		"#\t#\t{}\t{}\t#\t#\n".format(t3,t4)+
-		"#\t#\t{}\t{}\t#\t#\n".format(t1,t2))
-
-red = (0)
-blue = (1)
-green = (2)
-yellow = (3)
-orange = (4)
+	tp()
 
 #cree les tiles
 t1 = tile(0,2,red)
@@ -93,16 +76,10 @@ t14 = tile(2,5,yellow)
 t15 = tile(3,4,yellow)
 t16 = tile(3,5,yellow)
 
-t17 = tile(4,2,orange)
-t18 = tile(5,2,orange)
-t19 = tile(4,3,orange)
-t20 = tile(5,3,orange)
+t17 = tile(4,2,purple)
+t18 = tile(5,2,purple)
+t19 = tile(4,3,purple)
+t20 = tile(5,3,purple)
 
 #liste des tiles
 tiles = [t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,t20]
-
-screen()
-
-move(2,2,"N")
-
-screen()

@@ -37,9 +37,9 @@ def get_moves(lenth,col1,col2):
 		 col1 et col2 les couleurs du countdown
 	"""
 	moves = []
-	countdown(5,col1,col1)
+	countdown(1,col1,col1)
 	for i in range(lenth):
-		countdown(4,col1,col2)
+		countdown(1,col1,col2)
 		moves.append(get_position())
 		sleep(1)
 	return moves

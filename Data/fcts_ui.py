@@ -56,9 +56,9 @@ def new_message_ui(caracters,symbols):
 			#fin ecriture
 			elif event.action == "held":
 				if event.direction == "middle":
-					message = end_menu(new_message,symbols)
-					if message != None:
-						return message
+					message_str = end_menu(new_message,symbols)
+					if message_str != None:
+						return message_str
 
 			sense.show_letter(new_message[index])
 
