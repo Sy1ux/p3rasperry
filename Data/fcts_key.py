@@ -26,12 +26,21 @@ def repertoire(lst):
     d ={}
     l = [-1,-1,-1]     # Definition d'une liste de base
     d[(-1,-1,-1)] = 'a'    # Initialisation du premier { tuple : valeur } du dictionnaire
+<<<<<<< Updated upstream
     for i in lst:
         d[ajouter_tup (l)] = i   # Creation du dictionnaire complet sur base de la liste 'l' est la liste de caractere 'lst'.
     return d 
 
 
 def letter(lst_tup,dic):
+=======
+    for i in lst :
+        d[ajouter_tup (l)] = i   # Création du dictionnaire complet sur base de la liste 'l' est la liste de caractere 'lst'.
+    return d 
+
+
+def letter (lst_tup,dic):
+>>>>>>> Stashed changes
     """
     Cree une liste de lettres sur base d'une liste de tuples 'lst_tup' et un dictionnaire 'dict'.
     pre : 'lst_tup' est une liste de tuples, les tuples doivent exister comme cle dans le dictionnaire 'dict'.
@@ -42,6 +51,10 @@ def letter(lst_tup,dic):
     lst_char = []
     for i in lst_tup:
         lst_char.append(dic[i])
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
     return lst_char
 
 def create_key (lst_tup,caract):
