@@ -15,14 +15,13 @@ def write_message(caracters,filename,symbols,filename2,convert_list):
 
 	#entrer nouveau message
 	message = new_message_ui(caracters,symbols)
-	print(message)
 
 	#enregistrer sequance de mouvement et aproximer
 	moves = get_moves(5,(150,150,150),(255,180,0))
+	print(moves)
 
 	#cree la clef
 	key = create_key(moves, convert_list)
-	print(key)
 
 	#sauvgarder la clef achee
 	save_message(hashing(key),filename2)
@@ -42,17 +41,17 @@ def read_message(filename,filename2,convert_list):
 
 	#lecture du messsage cripte
 	crypted_message = read_file(filename)
-	print(crypted_message)
 
 	#enregister sequance de mouvement
 	moves = get_moves(5,(150,150,150),(255,180,0))
+	print(moves)
 
 	#cree la clef
 	key = create_key(moves, convert_list)
-	print(key)
 
 	#acher et comparer la clef
 	if hashing(key) != read_file(filename2):
+
 		return
 
 	#decrypter le message
