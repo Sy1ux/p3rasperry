@@ -13,6 +13,21 @@ for i in tiles_options:
     b.add(i[0],i[1],i[2])
 
 screen(3,2,False)
-selected = (3,2)
+selection = (3,2)
+selected = False
 
 for i in range(5):
+	while selected == False:
+		move = wait_for_move()
+		if move == "middle":
+			selected = True
+		else:
+			selection = move_selection(selection[0],selection[1],move)
+			screen(selection[0],selection[1],False)
+	while selected == True:
+		move = wait_for_move()
+		if move == "middle":
+			selected = False
+		else:
+			b.move(selection[0],selection[1],move)
+			break
