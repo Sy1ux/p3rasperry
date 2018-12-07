@@ -14,7 +14,7 @@ def encode(pwd, plain_text):
         key_c = key[i % len(key)]
         enc_c = chr((ord(e) + ord(key_c)) % 256)
         enc.append(enc_c)
-    return (" ".join(enc).encode("utf-8")).decode("utf-8")
+    return (" ".join(enc).encode()).decode()
 
 def decode(pwd, cipher_text):
     """
