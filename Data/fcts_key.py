@@ -30,8 +30,8 @@ def repertoire(lst):
         d[ajouter_tup (l)] = i   # Creation du dictionnaire complet sur base de la liste 'l' est la liste de caractere 'lst'.
     return d 
 
+def letter (lst_tup,dic):
 
-def letter(lst_tup,dic):
     """
     Cree une liste de lettres sur base d'une liste de tuples 'lst_tup' et un dictionnaire 'dict'.
     pre : 'lst_tup' est une liste de tuples, les tuples doivent exister comme cle dans le dictionnaire 'dict'.
@@ -42,6 +42,7 @@ def letter(lst_tup,dic):
     lst_char = []
     for i in lst_tup:
         lst_char.append(dic[i])
+
     return lst_char
 
 def create_key (lst_tup,caract):
@@ -56,7 +57,8 @@ def create_key (lst_tup,caract):
            ainsi un string 'key' qu'elle retournera par la suite.
     """
     dico = repertoire(caract)
+    lst_str = letter (lst_tup, dico)
     key = ""
-    for i in caract:
+    for i in lst_str:
         key += i
     return key
