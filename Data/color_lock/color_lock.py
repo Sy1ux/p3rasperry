@@ -1,7 +1,14 @@
 from sense_hat import SenseHat
 
 class Board:
+    """
+    classe de l'espace en 2D contenant les cases de coleurs
+    (utiliser pour lister toutes les tiles)
+    """
     class Tile:
+        """
+        définit les cases de couleurs par des coordonee dans un espace 2D et une couleur
+        """
         def __init__(self,x,y,color,next = None):
             self.__x = x
             self.__y = y
@@ -28,17 +35,27 @@ class Board:
         self.__lenth = 0
 
     def add(self,x,y,color):
+        """
+        rajouter une nouvelle tuile au tableau
+        """
         tile = self.Tile(x,y,color,self.__first)
         self.__first = tile
         self.__lenth += 1
 
     def color(self,x,y):
+        """
+        obtenir la couleur d'une certaine case
+        """
         other = self.__first
         while (other.get_x(),other.get_y()) != (x,y):
             other = other.next()
         return other.get_color()
 
     def move(self,selection_x,selection_y,direction):
+        """
+        deplacer toutes les cases d'une certaine ligne ou colone dans une 
+        direction donnée
+        """
         other = self.__first
         for i in range(self.__lenth):
             if direction == "up":
@@ -64,6 +81,9 @@ class Board:
             other = other.next()
 
 def wait_for_move():
+    """
+    attend une action de l'iutilisateur et la renvoie
+    """
     sense = SenseHat()
     end = False
     while end == False:
@@ -72,10 +92,14 @@ def wait_for_move():
                 return event.direction
 
 def screen(board,selection,selected):
+    """
+    met a jour l'ecran avec les donee du tableau
+    """
     sense = SenseHat()
     white = (255,255,255)
     grey = (100,100,100)
 
+    #met a jour toutes les couleurs en fonction des tiles aux coordonee choisies
     A = board.color(3,2)
     W = board.color(3,2)
     B = board.color(3,3)
@@ -85,6 +109,7 @@ def screen(board,selection,selected):
     D = board.color(2,3)
     Z = board.color(2,3)
 
+    #modifie le contour de la case selectionee en fonction de si elle est enfoncee ou non
     if selected == True:
         if selection == (3,2): A = grey
         elif selection == (3,3): B = grey
@@ -100,6 +125,9 @@ def screen(board,selection,selected):
     sense.set_pixels(screen_pixels)
 
 def move_selection(selection_x,selection_y,direction):
+    """
+    deplace la case selectionnee par l'utilisateur
+    """
     new_selection = [selection_x,selection_y]
     if direction == "up":
     	if selection_x == 2:
@@ -115,40 +143,30 @@ def move_selection(selection_x,selection_y,direction):
     		new_selection[1] -= 1
     return (new_selection[0],new_selection[1])
 
-def ajouter_tup(l):
-    while l[2] > 1 :
-        l[2] = -1
-        l[1] += 1
-    while l[1] > 1 :
-        l[1] = -1
-        l[0] += 1
-    return(l[0],l[1],l[2])
-
 def color_lock():
 
+    #definitions des couleurs de l'ecran
     red = (255,0,0)
     blue = (0,0,255)
     green = (0,255,0)
     yellow = (255,255,0)
     purple = (255,0,255)
 
+    #proprietee initilales de toutes les tiles
     tiles_options = [(0,2,red),(0,3,red),(1,2,red),(1,3,red),(2,0,blue),(2,1,blue),(3,0,blue),(3,1,blue),(2,2,green),(2,3,green),(3,2,green),(3,3,green),(2,4,yellow),(2,5,yellow),(3,4,yellow),(3,5,yellow),(4,2,purple),(4,3,purple),(5,2,purple),(5,3,purple)]
     
     tiles_convertion = {}
-    l = [1,1,1]
 
+    # cree un dictionaire de conversion
     for i in tiles_options:
         tiles_convertion[(i[0],i[1])] = ajouter_tup(l)
-
-    board = Board()
-    for i in tiles_options:
-        board.add(i[0],i[1],i[2])
 
     screen(board,(3,2),False)
     selection = (3,2)
     selected = False
     moves = 0
 
+    #mouvements des cases
     while moves < 7:
         while selected == False:
         	screen(board,(selection[0],selection[1]),False)
