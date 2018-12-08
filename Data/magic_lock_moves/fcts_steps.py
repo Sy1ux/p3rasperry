@@ -19,7 +19,6 @@ def write_message(caracters,filename,symbols,filename2,convert_list,symbols2):
 
 	#enregistrer sequance de mouvement et aproximer
 	moves = get_moves(5,(150,150,150),(255,180,0),symbols2)
-	print(moves)
 
 	#cree la clef
 	key = create_key(moves, convert_list)
@@ -52,15 +51,21 @@ def read_message(filename,filename2,convert_list,symbols,symbols2):
 	#acher et comparer la clef
 	if hashing(key) != read_file(filename2):
 		for i in range(5):
+			sense.set_pixels(symbols2[3])
+			sleep(0.1)
 			sense.set_pixels(symbols2[2])
 			sleep(0.1)
-			sense.set_pixels(symbols2[1])
-			sleep(0.1)
-	sense.set_pixels(symbols2[0])
-	sleep(0.3)
+		return False
+	for i in range(5):
+		sense.set_pixels(symbols2[0])
+		sleep(0.1)
+		sense.set_pixels(symbols2[1])
+		sleep(0.1)
 
 	#decrypter le message
 	decrypted_message = decode(key, read_file(filename))
+	decrypted_message = remove_space(decrypted_message)
 
 	#afficher le message
 	sense.show_message(decrypted_message)
+	return True

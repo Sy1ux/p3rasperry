@@ -91,7 +91,7 @@ l,l,w,l,l,w,l,l,
 l,l,l,w,w,l,l,l,
 l,l,l,l,l,l,l,l]
 
-#correct
+#correct1
 shape7 = [
 g,g,g,g,g,g,g,g,
 g,w,g,g,g,g,w,g,
@@ -102,8 +102,19 @@ g,g,w,g,g,w,g,g,
 g,g,g,w,w,g,g,g,
 g,g,g,g,g,g,g,g]
 
-#incrrect1
+#correct2
 shape8 = [
+w,w,w,w,w,w,w,w,
+w,g,w,w,w,w,g,w,
+w,g,w,w,w,w,g,w,
+w,g,w,w,w,w,g,w,
+w,w,g,w,w,g,w,w,
+w,w,g,w,w,g,w,w,
+w,w,w,g,g,w,w,w,
+w,w,w,w,w,w,w,w]
+
+#incrrect1
+shape9 = [
 d,d,d,d,d,d,d,d,
 d,w,d,d,d,d,w,d,
 d,d,w,d,d,w,d,d,
@@ -114,7 +125,7 @@ d,w,d,d,d,d,w,d,
 d,d,d,d,d,d,d,d]
 
 #incorrect2
-shape9 = [
+shape10 = [
 w,w,w,w,w,w,w,w,
 w,d,w,w,w,w,d,w,
 w,w,d,w,w,d,w,w,

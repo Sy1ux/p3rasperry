@@ -11,7 +11,6 @@ def file_exist(filename):
 	except:
 		return False
 
-
 def save_message(message, filename):
 	"""
 	pre: message le string a stocker dans un fichier
@@ -28,10 +27,21 @@ def read_file(filename):
 	post: le string contenant le message
 	"""
 	with open(filename,"r") as file:
-		return file.readline()
+		f = ""
+		for i in file.readline():
+			if i != " ":
+				f += i[:]
+		return f
 
 def del_message(filename):
 	"""
 	suprimer un fichier
 	"""
 	remove(filename)
+
+def remove_space(string):
+	str_list = string.split(" ")
+	new_str = ""
+	for i in str_list:
+		new_str += i
+	return new_str

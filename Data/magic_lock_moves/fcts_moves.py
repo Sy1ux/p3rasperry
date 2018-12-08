@@ -20,14 +20,14 @@ def wait_for_move(symbols):
 	sense.set_pixels(symbols[1])
 	start = time()
 	end = False
-	while end == False
+	while end == False:
 		for event in sense.stick.get_events():
 			if event.action == "pressed":
 				if event.direction == "middle":
 					return
-		if time()-start < 1:
+		if time()-start > 1 and time()-start < 2:
 			sense.set_pixels(symbols[0])
-		elif time()-start >= 2:
+		elif time()-start > 2:
 			sense.set_pixels(symbols[1])
 			start = time() 
 
@@ -37,6 +37,7 @@ def get_moves(lenth,col1,col2,symbols):
 	pre: lenth le nombre de positions voulue
 		 col1 et col2 les couleurs du countdown
 	"""
+	sense = SenseHat()
 	moves = []
 	for i in range(lenth):
 		wait_for_move(symbols[1:])
