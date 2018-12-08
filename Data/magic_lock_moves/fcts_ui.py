@@ -1,5 +1,6 @@
 from sense_hat import SenseHat 
 from time import sleep
+from time import time
 
 ##################################### INTERFACE
 
@@ -17,48 +18,56 @@ def new_message_ui(caracters,symbols):
 	index = 0
 	push2 = 0
 	sense.show_letter(new_message[index])
+	returned = False
 	
 	while index >= 0:
 		caracter = new_message[index]
 		for event in sense.stick.get_events():
-			if event.action == "pressed":
-				#suprimer le dernier caractere
-				if event.direction == "middle":
-					if len(new_message) > 1:
-						if push2 == 1:
-							new_message = new_message[:-1]
-							index = len(new_message)-1
-							push2 = 0
+			if returned == False:
+				if event.action == "pressed":
+					#suprimer le dernier caractere
+					if event.direction == "middle":
+						if len(new_message) > 1:
+							if push2 == 1:
+								new_message = new_message[:-1]
+								index = len(new_message)-1
+								push2 = 0
+							else:
+								push2 = 1
+
+					#choisir le caractere
+					elif event.direction == "up":
+						push2 = 0
+						new_message[index] = caracters[up_index(caracter,caracters)]
+					elif event.direction == "down":
+						push2 = 0
+						new_message[index] = caracters[down_index(caracter,caracters)]
+
+					#se deplacer dans le message
+					elif event.direction == "left":
+						push2 = 0
+						if index == 0: index = 1
+						index -= 1
+					elif event.direction == "right":
+						push2 = 0
+						if index == len(new_message)-1:
+							new_message.append("0")
+							index += 1
 						else:
-							push2 = 1
+							index += 1
 
-				#choisir le caractere
-				elif event.direction == "up":
-					push2 = 0
-					new_message[index] = caracters[up_index(caracter,caracters)]
-				elif event.direction == "down":
-					push2 = 0
-					new_message[index] = caracters[down_index(caracter,caracters)]
+				#fin ecriture
+				elif event.action == "held":
+					if event.direction == "middle":
+						message = end_menu(new_message,symbols)
+						returned = True
+						returned_time = time()
+						if message != None:
+							return message
+			else:
+				if time() - returned_time > 0.1:
+					returned = False
 
-				#se deplacer dans le message
-				elif event.direction == "left":
-					push2 = 0
-					if index == 0: index = 1
-					index -= 1
-				elif event.direction == "right":
-					push2 = 0
-					if index == len(new_message)-1:
-						new_message.append("0")
-						index += 1
-					else:
-						index += 1
-
-			#fin ecriture
-			elif event.action == "held":
-				if event.direction == "middle":
-					message = end_menu(new_message,symbols)
-					if message != None:
-						return message
 
 			sense.show_letter(new_message[index])
 
