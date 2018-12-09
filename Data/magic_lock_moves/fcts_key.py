@@ -47,12 +47,14 @@ def letter (lst_tup,dic):
 
 def create_key (lst_tup,caract):
     """
-    Cree une cle a partir d'une liste de tuples 'lst_tup' et un dictionnaire 'dict'.
+    Cree une cle a partir d'une liste de tuples 'lst_tup' et un dictionnaire 'dico', qui lui meme est cree a partir d'une liste
+    de caractere 'caract'.
     pre : 'lst_tup' est une liste de tuples, les tuples doivent exister comme cle dans le dictionnaire 'dico'.
            'caract' est une liste de caracteres.
           La fonction 'repertoire' est deja definie.
           La fonction 'letter' est deja definie.
-    post : La fonction cree une liste de caractere grace a la fonction 'letter'.
+    post : La fonction genere un dictionnaire sur base de 'caract' grace a la fonction 'repertoire'.
+           La fonction cree une liste de caractere 'lst_str' grace a la fonction 'letter'.
            La fonction effectue un concatenation de tous les caracteres de la liste cree, formant
            ainsi un string 'key' qu'elle retournera par la suite.
     """
