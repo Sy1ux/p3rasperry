@@ -1,2 +1,2 @@
 # p3rasperry
-Use of the xxx fonctionality hardware on a rasperry.py
+Use of the sense hat hardware on a rasperry.py
