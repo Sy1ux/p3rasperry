@@ -3,7 +3,7 @@ P3- rasbery-py
 13nov - 19dec
 
 23nov 18h - chaier des charges et planing
-11dec 18h - preésentation par groupe
+11dec 18h - présentation par groupe
 18dec 18h - code et rapport du projet
 
 chailer des charges:

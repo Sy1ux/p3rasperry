@@ -1,4 +1,4 @@
--entrer un nouveau message
+﻿-entrer un nouveau message
 l'utilisateur navigue dans le message avec le joystick, latéral: le message, vertical: les caractères
 si il est au bout du message et va vers la droite, rajoute un caractère
 
@@ -15,18 +15,18 @@ l'utilisateur met le py dans une certainer position puis apuie sue le bouton pri
 -save crypted message
 eregistrer le message crypter dans un fichier txt
 
--lire le message encrtpter
+-lire le message encrypté
 lire le fichier txt
 
--(séquance de mouvements)
+-(séquence de mouvements)
 
 -décrypter le message
 ???
 
 -afficher le message en clair
-afficher le message en boucle a l'écran
+afficher le message en boucle à l'écran
 
--suprimer ou conserver
+-supprimer ou conserver
 a et b (boutons) controle ces choix
 
 [le code boucle]
